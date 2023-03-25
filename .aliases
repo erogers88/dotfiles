@@ -1,0 +1,4 @@
+#
+# $HOME/.aliases
+
+alias su='su -l'
