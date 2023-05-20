@@ -1,0 +1,7 @@
+[user]
+	name = Erik Rogers
+	email = erik@rogers-family.net
+[init]
+	defaultBranch = master
+[core]
+	editor = nvim
