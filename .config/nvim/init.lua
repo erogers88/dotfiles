@@ -293,12 +293,12 @@ if string.find('os.execute(uname -a)', 'Microsoft') then
   vim.g.clipboard = {
     name = 'Windows-Clipboard',
     copy = {
-      ['*'] = '/mnt/c/System32/clip.exe',
-      ['+'] = '/mnt/c/System32/clip.exe',
+      ['*'] = '/mnt/c/Windows/System32/clip.exe',
+      ['+'] = '/mnt/c/Windows/System32/clip.exe',
     },
     paste = {
-      ['*'] = [[/mnt/c/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
-      ['+'] = [[/mnt/c/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
+      ['*'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
+      ['+'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
     },
     cache_enabled = true
   }
