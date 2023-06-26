@@ -287,6 +287,33 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
+-- [[ Erik's Custom Keymaps ]]
+-- WSL clipboard hack
+if string.find('os.execute(uname -a)', 'Microsoft') then
+  vim.g.clipboard = {
+    name = 'Windows-Clipboard',
+    copy = {
+      ['*'] = '/mnt/c/System32/clip.exe',
+      ['+'] = '/mnt/c/System32/clip.exe',
+    },
+    paste = {
+      ['*'] = [[/mnt/c/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
+      ['+'] = [[/mnt/c/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
+    },
+    cache_enabled = true
+  }
+end
+
+-- neo-tree mappings
+vim.keymap.set('n', '<leader>t', '<Cmd>Neotree action=focus source=filesystem position=float toggle=true<CR>')
+
+-- barbar mappings
+vim.keymap.set('n', '<C-PageUp>','<Cmd>BufferPrevious<CR>')
+vim.keymap.set('n', '<C-PageDown>','<Cmd>BufferNext<CR>')
+vim.keymap.set('n', '<A-PageUp>','<Cmd>BufferMovePrevious<CR>')
+vim.keymap.set('n', '<A-PageDown>','<Cmd>BufferMoveNext<CR>')
+vim.keymap.set('n', '<leader>q','<Cmd>BufferClose<CR>')
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
@@ -357,7 +384,8 @@ require('nvim-treesitter.configs').setup {
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+-- Erik: changed from q to l
+vim.keymap.set('n', '<leader>l', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -495,16 +523,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
--- Erik Custom Mappings
--- neo-tree mappings
-vim.keymap.set('n', '<leader>t', '<Cmd>Neotree action=focus source=filesystem position=float toggle=true<CR>')
---
--- barbar mappings
-vim.keymap.set('n', '<C-PageUp>','<Cmd>BufferPrevious<CR>')
-vim.keymap.set('n', '<C-PageDown>','<Cmd>BufferNext<CR>')
-vim.keymap.set('n', '<A-PageUp>','<Cmd>BufferMovePrevious<CR>')
-vim.keymap.set('n', '<A-PageDown>','<Cmd>BufferMoveNext<CR>')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
