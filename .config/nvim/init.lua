@@ -289,18 +289,26 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 
 -- [[ Erik's Custom Keymaps ]]
 -- WSL clipboard hack
-if string.find('os.execute(uname -a)', 'Microsoft') then
+local v_uname_output = vim.api.nvim_exec2(
+  [[
+    let v_uname = system('uname --all')
+    echo v_uname
+  ]],
+  { output = true }
+)
+local uname = v_uname_output['output']
+if string.find(uname, 'Microsoft') then
   vim.g.clipboard = {
-    name = 'Windows-Clipboard',
+    name = 'WslClipboard',
     copy = {
       ['*'] = '/mnt/c/Windows/System32/clip.exe',
       ['+'] = '/mnt/c/Windows/System32/clip.exe',
     },
     paste = {
-      ['*'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
-      ['+'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//']],
+      ['*'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))]],
+      ['+'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))]],
     },
-    cache_enabled = true
+    cache_enabled = false
   }
 end
 
