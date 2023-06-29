@@ -288,29 +288,6 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- [[ Erik's Custom Keymaps ]]
--- WSL clipboard hack
-local v_uname_output = vim.api.nvim_exec2(
-  [[
-    let v_uname = system('uname --all')
-    echo v_uname
-  ]],
-  { output = true }
-)
-local uname = v_uname_output['output']
-if string.find(uname, 'Microsoft') then
-  vim.g.clipboard = {
-    name = 'WslClipboard',
-    copy = {
-      ['*'] = '/mnt/c/Windows/System32/clip.exe',
-      ['+'] = '/mnt/c/Windows/System32/clip.exe',
-    },
-    paste = {
-      ['*'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))]],
-      ['+'] = [[/mnt/c/Windows/System32/WindowsPowershell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))]],
-    },
-    cache_enabled = false
-  }
-end
 
 -- neo-tree mappings
 vim.keymap.set('n', '<leader>t', '<Cmd>Neotree action=focus source=filesystem position=float toggle=true<CR>')
