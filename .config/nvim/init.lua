@@ -6,6 +6,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Erik's Custom Globals
+vim.g.python3_host_prog = '/usr/bin/python3'
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -100,7 +103,7 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require('onedark').setup {
-        style = 'darker'
+        style = 'warmer'
       }
       require('onedark').load()
     end,
