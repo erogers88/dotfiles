@@ -500,10 +500,9 @@ env:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
 shell:
-  program: /bin/sh
+  program: wsl
   args:
-    - --login
-    - -c
+    - "~"
     - "tmux"
 
 # Startup directory
