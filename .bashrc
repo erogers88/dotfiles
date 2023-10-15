@@ -45,3 +45,8 @@ root_check_sign() {
 
 PS1="$(root_check_name)\h \[\033[00;34m\]\W\[\033[00;33m\]$(git_branch_add) $(root_check_sign)"
 
+# npm
+PATH="$PATH:$HOME/.npm-global"
+
+# local binaries
+PATH="$PATH:$HOME/.local/bin"
