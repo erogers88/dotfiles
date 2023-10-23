@@ -2,6 +2,11 @@
 
 REPODIR="$(dirname "$(realpath "$0")")"
 
+# Remove any existing Neovim configs and state
+rm -rf "$HOME/.config/nvim"
+rm -rf "$HOME/.local/share/nvim"
+rm -rf "$HOME/.local/state/nvim"
+
 # Make directories if needed
 mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.ssh"
