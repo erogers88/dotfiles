@@ -3,6 +3,9 @@ require('lazy').setup(
     -- Theme
     require('plugins.theme'),
 
+    -- Greeter
+    require('plugins.greeter'),
+
     -- Git local integration
     'tpope/vim-fugitive',
 
