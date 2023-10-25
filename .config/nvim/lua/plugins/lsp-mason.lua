@@ -12,6 +12,8 @@ return {
 
     },
     config = function()
+      -- Must set up Neodev first
+      require('neodev').setup()
 
       --  This function gets run when an LSP connects to a particular buffer.
       local on_attach = function(_, bufnr)
@@ -58,10 +60,7 @@ return {
           Lua = {
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
-            diagnostics = {
-              globals = { 'vim' }
-            }
-          },
+          }
         },
         pyright = {},
       }

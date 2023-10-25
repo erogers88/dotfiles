@@ -16,7 +16,7 @@ require('lazy').setup(
     'tpope/vim-sleuth',
 
     -- Automatically configures lua-language-server, Neovim API integration
-    {'folke/neodev.nvim', opts = {} },
+    'folke/neodev.nvim',
 
     -- Tabs for buffers
     'romgrk/barbar.nvim',
