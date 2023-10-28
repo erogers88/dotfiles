@@ -14,9 +14,18 @@ export LS_COLORS
 # This section is for $PS1
 #
 
+# check for git and store variable
+export ERIK_RC_GIT_CHECK
+git --version > /dev/null 2>&1
+ERIK_RC_GIT_CHECK=$?
+
+# check for root and store variable
+export ERIK_RC_ROOT_CHECK
+ERIK_RC_ROOT_CHECK="$(id -u)"
+
 # If using my desktop add git branch name 
 git_branch_add() {
-	if [ "$(hostname)" = "erik-desktop" ];
+	if [ "$ERIK_RC_GIT_CHECK" = "0" ];
 	then	echo "\[\033[00;33m\]\$(git_branch)"
 	else 	echo ""
 	fi
@@ -29,7 +38,7 @@ git_branch() {
 
 # If root then change color to red
 root_check_name() {
-	if [ "$(id -u)" = "0" ];
+	if [ "$ERIK_RC_ROOT_CHECK" = "0" ];
 	then 	echo "\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;31m\]"
 	else 	echo "\[\033[00;32m\]\u\[\033[00m\]@\[\033[00;32m\]"
 	fi
@@ -37,7 +46,7 @@ root_check_name() {
 
 # If root then add # instead of $
 root_check_sign() {
-	if [ "$(id -u)" = "0" ];
+	if [ "$ERIK_RC_ROOT_CHECK" = "0" ];
 	then 	echo "\[\033[01;31m\]#\[\033[00m\] "
 	else 	echo "\[\033[00;32m\]$\[\033[00m\] "
 	fi
@@ -46,7 +55,7 @@ root_check_sign() {
 PS1="$(root_check_name)\h \[\033[00;34m\]\W\[\033[00;33m\]$(git_branch_add) $(root_check_sign)"
 
 # npm
-PATH="$PATH:$HOME/.npm-global"
+PATH="$HOME/.npm-global/bin:$PATH"
 
 # local binaries
-PATH="$PATH:$HOME/.local/bin"
+PATH="$HOME/.local/bin:$PATH"
