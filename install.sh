@@ -31,4 +31,11 @@ if echo "$UNAME" | grep 'Microsoft'; then
 	# alacritty
 	mkdir -p "$USERPROFILE/AppData/alacritty"
 	cp "$REPODIR/wsl/alacritty-wsl.yml" "$USERPROFILE/AppData/Roaming/alacritty/alacritty.yml"
+
+	# node fix for musl-based system (check for apk program)
+	if [ "$(apk --version >/dev/null 2>&1)" = "0" ]; then
+		mkdir -p "$HOME/.local/bin"
+		cp "$REPODIR/wsl/node" "$HOME/local/bin"
+	fi
+	
 fi
