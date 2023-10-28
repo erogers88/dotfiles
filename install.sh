@@ -10,6 +10,8 @@ rm -rf "$HOME/.local/state/nvim"
 # Make directories if needed
 mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.ssh"
+mkdir -p "$HOME/.npm-global/bin"
+mkdir -p "$HOME/.local/bin"
 
 # Copy all config files
 cp -r "$REPODIR/.config/"* "$HOME/.config"
@@ -34,7 +36,6 @@ if echo "$UNAME" | grep 'Microsoft'; then
 
 	# node fix for musl-based system (check for apk program)
 	if [ "$(apk --version >/dev/null 2>&1)" = "0" ]; then
-		mkdir -p "$HOME/.local/bin"
 		cp "$REPODIR/wsl/node" "$HOME/local/bin"
 	fi
 	
