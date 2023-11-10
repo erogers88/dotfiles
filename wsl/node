@@ -1,2 +1,2 @@
 #!/bin/sh
-/lib/ld/musl-x86_64.so.1 /usr/bin/node "$@"
+/lib/ld-musl-x86_64.so.1 /usr/bin/node "$@"
