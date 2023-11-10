@@ -1,6 +1,10 @@
 #!/bin/sh
 
-REPODIR="$(dirname "$(realpath "$0")")"
+REPODIR="$HOME/dotfiles"
+REPOURL="https://github.com/erogers88/dotfiles"
+
+# Create temp repo
+git clone "$REPOURL" "$REPODIR" || exit
 
 # Remove any existing Neovim configs and state
 rm -rf "$HOME/.config/nvim"
@@ -36,7 +40,11 @@ if echo "$UNAME" | grep 'Microsoft'; then
 
 	# node fix for musl-based system (check for apk program)
 	if [ "$(apk --version >/dev/null 2>&1)" = "0" ]; then
-		cp "$REPODIR/wsl/node" "$HOME/local/bin"
+		cp "$REPODIR/wsl/node" "$HOME/.local/bin"
 	fi
 	
 fi
+
+# Remove temp repo
+rm -r "$REPODIR"
+
