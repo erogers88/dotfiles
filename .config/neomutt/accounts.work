@@ -1,0 +1,23 @@
+# vim: filetype=muttrc
+
+# Name and Address
+set from = "erik.w.rogers@spglobal.com"
+set realname = "Erik Rogers"
+set imap_user = "erik_rogers1"
+set sendmail = "msmtp -a work"
+unset record
+
+# Mailboxes
+set folder = "$HOME/Maildir/work"
+set spoolfile = "+Inbox"
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+Trash"
+
+
+# mbsync
+macro index S "<shell-escape>mbsync work<enter>"
+
+# Need to implement dynamic way to check for mailboxes in ~/Maildir folder
+#set imap_check_subscribed
+mailboxes $spoolfile $postponed $record $trash

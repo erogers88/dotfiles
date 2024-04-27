@@ -1,0 +1,7 @@
+# vim: filetype=muttrc
+
+set mailcap_path = ~/.config/neomutt/mailcap
+
+auto_view text/html                                      # view html automatically
+alternative_order text/plain text/enriched text/html     # save html for last
+

@@ -1,0 +1,52 @@
+# Globals
+Create Near
+Expunge Near
+Sync All
+SyncState *
+
+
+# Accounts
+
+## Personal
+IMAPAccount personal
+Host imap.rogers-family.net
+Port 993
+User erik
+PassCmd "gpg --decrypt --quiet $HOME/.msmtppass.gpg"
+SSLType IMAPS
+AuthMechs PLAIN
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Path ~/Maildir/personal/
+Inbox ~/Maildir/personal/Inbox
+Flatten .
+
+Channel personal
+Master :personal-remote:
+Slave :personal-local:
+Patterns *
+
+## Work
+IMAPAccount work
+Host 127.0.0.1
+Port 1143
+User erik_rogers1
+PassCmd "gpg --decrypt --quiet $HOME/.msmtppass.gpg"
+SSLType IMAPS
+AuthMechs PLAIN
+
+IMAPStore work-remote
+Account work
+
+MaildirStore work-local
+Path ~/Maildir/work/
+Inbox ~/Maildir/work/Inbox
+Flatten .
+
+Channel work
+Master :work-remote:
+Slave :work-local:
+Patterns *
