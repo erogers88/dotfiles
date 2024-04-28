@@ -33,10 +33,10 @@ Patterns *
 IMAPAccount work
 Host 127.0.0.1
 Port 1143
-User erik_rogers1
+User erik.w.rogers@spglobal.com
 PassCmd "gpg --decrypt --quiet $HOME/.msmtppass.gpg"
-SSLType IMAPS
-AuthMechs PLAIN
+SSLType None
+AuthMechs LOGIN
 
 IMAPStore work-remote
 Account work
