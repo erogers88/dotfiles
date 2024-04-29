@@ -12,7 +12,7 @@ IMAPAccount personal
 Host imap.rogers-family.net
 Port 993
 User erik
-PassCmd "gpg --decrypt --quiet $HOME/.msmtppass.gpg"
+PassCmd "gpg --decrypt --quiet ~/.msmtppass.gpg"
 SSLType IMAPS
 AuthMechs PLAIN
 
@@ -34,7 +34,7 @@ IMAPAccount work
 Host 127.0.0.1
 Port 1143
 User erik.w.rogers@spglobal.com
-PassCmd "gpg --decrypt --quiet $HOME/.msmtppass.gpg"
+PassCmd "gpg --decrypt --quiet ~/.msmtppass.gpg"
 SSLType None
 AuthMechs LOGIN
 

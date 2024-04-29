@@ -7,6 +7,9 @@ set imap_user = "erik_rogers1"
 set sendmail = "msmtp -a work"
 unset record
 
+# Exchange will create an extra copy of sent items
+set copy = no
+
 # Mailboxes
 set folder = "$HOME/Maildir/work"
 set spoolfile = "+Inbox"
