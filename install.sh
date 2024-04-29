@@ -3,6 +3,22 @@
 # Get script directory
 SCRIPTDIR="$(dirname "$(realpath "$0")")"
 
+# Personal or Work?
+read_char() {
+  echo "Configure personal or work email account [p/w]?"
+  stty -icanon -echo
+  eval "$1=\$(dd bs=1 count=1 2>/dev/null)"
+  stty icanon echo
+}
+read_char PORW
+
+if [ "$PORW" = "p" ]; then
+	cp "$SCRIPTDIR/.config/neomutt/accounts.personal" "$HOME/.config/neomutt/accounts"
+elif [ "$PORW" = "w" ]; then
+	cp "$SCRIPTDIR/.config/neomutt/accounts.work" "$HOME/.config/neomutt/accounts"
+else echo "Response not recognized, aborting..." && exit
+fi
+
 # Remove any existing nvim files
 rm -rf "$HOME/.config/nvim"
 rm -rf "$HOME/.local/share/nvim"
@@ -26,9 +42,6 @@ cp "$SCRIPTDIR/.tmux.conf" "$HOME"
 cp "$SCRIPTDIR/.mbsyncrc" "$HOME"
 cp "$SCRIPTDIR/.msmtprc" "$HOME"
 
-echo "copy ~/.config/neomutt/accounts.<personal | work> to ~/.config/neomutt/accounts"
-echo "create ~/.msmtppass.gpg using gpg to encrypt password"
-
 # Detect Windows and Copy Windows-Specific configs
 UNAME="$(uname -a)"
 if echo "$UNAME" | grep 'Microsoft'; then
@@ -39,7 +52,7 @@ if echo "$UNAME" | grep 'Microsoft'; then
 	fi
 
 	# alacritty
-	mkdir -p "$USERPROFILE/AppData/alacritty"
+	mkdir -p "$USERPROFILE/AppData/Roaming/alacritty"
 	cp "$SCRIPTDIR/wsl/alacritty-wsl.yml" "$USERPROFILE/AppData/Roaming/alacritty/alacritty.yml"
 
 	# node fix for musl-based system (check for apk program)
@@ -48,4 +61,7 @@ if echo "$UNAME" | grep 'Microsoft'; then
 	fi
 	
 fi
+
+echo "Success"
+echo "create ~/.msmtppass.gpg using gpg to encrypt mail IMAP/SMTP password, if it doesn't exist"
 
