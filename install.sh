@@ -31,6 +31,7 @@ mkdir -p "$HOME/.npm-global/bin"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/Maildir/personal"
 mkdir -p "$HOME/Maildir/work"
+mkdir -p "$HOME/.gnupg"
 
 # Copy all config files
 cp -r "$SCRIPTDIR/.config/"* "$HOME/.config"
@@ -41,6 +42,7 @@ cp "$SCRIPTDIR/.profile" "$HOME"
 cp "$SCRIPTDIR/.tmux.conf" "$HOME"
 cp "$SCRIPTDIR/.mbsyncrc" "$HOME"
 cp "$SCRIPTDIR/.msmtprc" "$HOME"
+cp "$SCRIPTDIR/.gnupg/gpg.conf" "$HOME/.gnupg/gpg.conf"
 
 # Detect Windows and Copy Windows-Specific configs
 UNAME="$(uname -a)"
