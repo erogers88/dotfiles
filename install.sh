@@ -68,4 +68,4 @@ fi
 
 echo "Success"
 echo "create ~/.msmtppass.gpg using gpg to encrypt mail IMAP/SMTP password, if it doesn't exist"
-
+echo "run 'mbsync [personal | work] before using neomutt if you haven't on this machine yet"
