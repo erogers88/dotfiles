@@ -25,7 +25,9 @@ rm -rf "$HOME/.local/share/nvim"
 rm -rf "$HOME/.local/state/nvim"
 
 # Make directories if needed
-mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.config/alacritty"
+mkdir -p "$HOME/.config/neomutt"
+mkdir -p "$HOME/.config/nvim"
 mkdir -p "$HOME/.ssh"
 mkdir -p "$HOME/.npm-global/bin"
 mkdir -p "$HOME/.local/bin"
