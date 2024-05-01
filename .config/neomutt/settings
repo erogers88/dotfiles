@@ -1,5 +1,6 @@
 # vim: filetype=muttrc
 
+set abort_key = "<Esc>"
 set askcc
 set attribution = "On %d, %n wrote:"
 set charset = "utf-8"

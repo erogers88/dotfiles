@@ -63,3 +63,6 @@ PATH="$HOME/.local/bin:$PATH"
 # GPG
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# NCurses Escape Delay
+export ESCDELAY=10
