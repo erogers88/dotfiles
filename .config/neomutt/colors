@@ -1,10 +1,15 @@
 # vim: filetype=muttrc
 
+mono bold bold
+mono underline underline
+mono indicator reverse
+mono error bold
+
 color attachment  color109 color235
 color bold        color229 color235
 color error       color167 color235
 color hdrdefault  color246 color235
-color indicator   color223 color237
+color indicator   color223 color240
 color markers     color243 color235
 color normal      color223 color235
 color quoted      color250 color235
@@ -23,18 +28,22 @@ color underline   color223 color239
 color sidebar_divider    color250 color235
 color sidebar_new        color142 color235
 
-color index color142 color235 ~N
-color index color108 color235 ~O
-color index color109 color235 ~P
-color index color214 color235 ~F
-color index color175 color235 ~Q
+# Index
+
+color index color070 color235 ~N
+color index color070 color235 ~O
+color index color001 color235 ~N~F
+color index color001 color235 ~O~F
 color index color167 color235 ~=
 color index color235 color223 ~T
 color index color235 color167 ~D
 
+index-format-hook paperclip "~X1" "📎"
+index-format-hook paperclip "~A" " "
+
 # Headers
-color header color214 color235 "^(To:|From:)"
-color header color142 color235 "^Subject:"
+color header color038 color235 "^(To:|From:|CC:)"
+color header color223 color235 "^Subject:"
 color header color108 color235 "^X-Spam-Status:"
 color header color108 color235 "^Received:"
 
@@ -46,8 +55,10 @@ color body color142 color235 "((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}
 color body color142 color235 "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))"
 
 # Mail addresses and mailto URLs
-color body color208 color235 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-color body color208 color235 "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body color038 color235 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body color038 color235 "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color header color038 color235 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color header color038 color235 "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 
 # Emojis
 color body color235 color214 "[;:]-*[)>(<lt;|]"

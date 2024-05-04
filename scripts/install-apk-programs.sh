@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S \
+sudo apk add \
 	neovim \
 	neomutt \
 	isync \
@@ -8,5 +8,7 @@ sudo pacman -S \
 	urlscan \
 	w3m \
 	khal \
-	khard \
 	vdirsyncer \
+
+# khard not available on apk
+pip install khard

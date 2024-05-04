@@ -6,8 +6,6 @@ set realname = "Erik Rogers"
 set imap_user = "erik_rogers1"
 set sendmail = "msmtp -a work"
 unset record
-
-# Exchange will create an extra copy of sent items
 set copy = no
 
 # Mailboxes
@@ -17,10 +15,8 @@ set postponed = "+Drafts"
 set record = "+Sent"
 set trash = "+Trash"
 
-
 # mbsync
-macro index S "<shell-escape>mbsync work<enter>"
+macro generic,index,pager S "<shell-escape>mbsync work<enter>"
 
-# Need to implement dynamic way to check for mailboxes in ~/Maildir folder
-#set imap_check_subscribed
-mailboxes $spoolfile $postponed $record $trash
+# Dynamically get all folders
+mailboxes `ls "$HOME"/Maildir/work | sed -e 's/\</\+/;s/\r/\s/' | tr '\n' ' '`
