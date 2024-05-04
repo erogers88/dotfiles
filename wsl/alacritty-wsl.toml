@@ -51,4 +51,4 @@ normal = { family = "SauceCodePro NFM", style = "Regular" }
 bold = { family = "SauceCodePro NFM", style = "Bold" }
 italic = { family = "SauceCodePro NFM", style = "Italic" }
 bold_italic = { family = "SauceCodePro NFM", style = "Bold Italic" }
-size = 11.25
+size = 11.5
