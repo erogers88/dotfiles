@@ -26,7 +26,7 @@ color tree        color142 color235
 color underline   color223 color239
 
 color sidebar_divider    color250 color235
-color sidebar_new        color142 color235
+color sidebar_new        color070 color235
 
 # Index
 
