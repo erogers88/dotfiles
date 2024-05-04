@@ -13,9 +13,9 @@ read_char() {
 read_char PORW
 
 if [ "$PORW" = "p" ]; then
-	cp "$SCRIPTDIR/.config/neomutt/accounts.personal" "$HOME/.config/neomutt/accounts"
+	ACCNAME="personal"
 elif [ "$PORW" = "w" ]; then
-	cp "$SCRIPTDIR/.config/neomutt/accounts.work" "$HOME/.config/neomutt/accounts"
+	ACCNAME="work"
 else echo "Response not recognized, aborting..." && exit
 fi
 
@@ -28,12 +28,23 @@ rm -rf "$HOME/.local/state/nvim"
 mkdir -p "$HOME/.config/alacritty"
 mkdir -p "$HOME/.config/neomutt"
 mkdir -p "$HOME/.config/nvim"
+mkdir -p "$HOME/.config/vdirsyncer"
 mkdir -p "$HOME/.ssh"
 mkdir -p "$HOME/.npm-global/bin"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/Maildir/personal"
 mkdir -p "$HOME/Maildir/work"
 mkdir -p "$HOME/.gnupg"
+mkdir -p "$HOME/.calendars/personal"
+mkdir -p "$HOME/.calendars/work"
+mkdir -p "$HOME/.contacts/personal"
+mkdir -p "$HOME/.contacts/work"
+mkdir -p "$HOME/.config/vdirsyncer"
+mkdir -p "$HOME/.config/khal"
+
+# Account-specific
+cp "$SCRIPTDIR/.config/neomutt/accounts.$ACCNAME" "$HOME/.config/neomutt/accounts"
+cp "$SCRIPTDIR/.config/vdirsyncer/config.$ACCNAME" "$HOME/.config/vdirsyncer/config"
 
 # Copy all config files
 cp -r "$SCRIPTDIR/.config/"* "$HOME/.config"
@@ -68,4 +79,7 @@ fi
 
 echo "Success"
 echo "create ~/.msmtppass.gpg using gpg to encrypt mail IMAP/SMTP password, if it doesn't exist"
+echo "create ~/.davpass.gpg using gpg to encrypt caldav/carddav password, if it doesn't exist"
 echo "run 'mbsync [personal | work] before using neomutt if you haven't on this machine yet"
+echo "run 'vdirsyncer discover' & 'vdirsyncer sync' to sync calendars and contacts"
+echo "run 'khal configure' to set up calendars, if running for the first time"
