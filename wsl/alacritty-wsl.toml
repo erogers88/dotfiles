@@ -47,8 +47,8 @@ args = ["~", "tmux"]
 program = "wsl"
 
 [font]
-normal = { family = "SauceCodeProNerdFontMono", style = "Regular" }
-bold = { family = "SauceCodeProNerdFontMono", style = "Bold" }
-italic = { family = "SauceCodeProNerdFontMono", style = "Italic" }
-bold_italic = { family = "SauceCodeProNerdFontMono", style = "Bold Italic" }
+normal = { family = "SauceCodePro NFM", style = "Regular" }
+bold = { family = "SauceCodePro NFM", style = "Bold" }
+italic = { family = "SauceCodePro NFM", style = "Italic" }
+bold_italic = { family = "SauceCodePro NFM", style = "Bold Italic" }
 size = 11.25
