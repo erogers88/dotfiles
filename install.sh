@@ -68,7 +68,7 @@ if echo "$UNAME" | grep 'Microsoft'; then
 
 	# alacritty
 	mkdir -p "$USERPROFILE/AppData/Roaming/alacritty"
-	cp "$SCRIPTDIR/wsl/alacritty-wsl.yml" "$USERPROFILE/AppData/Roaming/alacritty/alacritty.yml"
+	cp "$SCRIPTDIR/wsl/alacritty-wsl.toml" "$USERPROFILE/AppData/Roaming/alacritty/alacritty.toml"
 
 	# node fix for musl-based system (check for apk program)
 	if [ "$(apk --version >/dev/null 2>&1)" = "0" ]; then
