@@ -11,4 +11,4 @@ sudo pacman -S \
 	khard \
 	vdirsyncer \
 
-pip install --user mutt_ics
+pip install --user python-icalendar

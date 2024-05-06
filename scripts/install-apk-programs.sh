@@ -10,4 +10,4 @@ sudo apk add \
 	vdirsyncer \
 
 pip install --user khard
-pip install --user mutt_ics
+pip install --user py3-icalendar

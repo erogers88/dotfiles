@@ -1,7 +1,7 @@
 # vim: filetype=mailcap
 
-text/html; cp '%s' ~/.tempfilew3m.html && sed -i -e 's,/tmp,/Alpine-latest/tmp,g' ~/.tempfilew3m.html && chromium $(wslpath -w ~/.tempfilew3m.html) && sleep 1 && rm ~/.tempfilew3m.html;
+text/html; cp %s ~/.tempfilew3m.html && sed -i -e 's,/tmp,/Alpine-latest/tmp,g' ~/.tempfilew3m.html && chromium $(wslpath -w ~/.tempfilew3m.html) && sleep 1 && rm ~/.tempfilew3m.html;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
-image/*; chromium $(wslpath -w '%s');
-text/calendar; mutt-ics; copiousoutput
-application/ics; mutt-ics; copiousoutput
+image/*; chromium $(wslpath -w %s);
+text/calendar; icalendar %s; copiousoutput
+application/ics; icalendar %s; copiousoutput
