@@ -38,9 +38,6 @@ color index color167 color235 ~=
 color index color235 color223 ~T
 color index color235 color167 ~D
 
-index-format-hook paperclip "~X1" "📎"
-index-format-hook paperclip "~A" " "
-
 # Headers
 color header color038 color235 "^(To:|From:|CC:)"
 color header color223 color235 "^Subject:"

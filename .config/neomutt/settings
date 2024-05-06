@@ -14,7 +14,13 @@ set forward_format = "Fwd: %s"
 set forward_quote
 set imap_keepalive = 900
 set include
-set index_format = " %4C %Z %[%b %d] %@paperclip@ %-30.30L  %s "
+set index_format = " %4C %Z %8@date@ %2@calendar@ %2@paperclip@ %-30.30L  %s "
+index-format-hook date      "~d<1d" "%[%I:%M %p]"
+index-format-hook date      "~A"     "%[%b %d]"
+index-format-hook calendar  "~M text/calendar" "📅"
+index-format-hook calendar  "~A" " "
+index-format-hook paperclip "~X1" "📎"
+index-format-hook paperclip "~A" " "
 set mail_check = 30
 set mail_check_stats
 set menu_scroll
