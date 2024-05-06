@@ -27,7 +27,8 @@ bind index               zA        collapse-all
 bind index,pager         N         search-opposite
 bind index               <Backtab> previous-new-then-unread
 
-# Go to folder...
+# Sidebar
+# ----------------------------------------------------
 macro index,pager gi "<change-folder>=INBOX<enter>"       "open inbox"
 macro index,pager gd "<change-folder>=Drafts<enter>"      "open drafts"
 macro index,pager gs "<change-folder>=Sent<enter>"        "open sent"
@@ -40,7 +41,6 @@ bind index,pager b sidebar-toggle-visible
 
 # Actions
 # ----------------------------------------------------
-
 bind  index,pager    a   group-reply
 macro index,pager    c   "<change-folder>?"
 macro index,pager    C   "<copy-message>?"
@@ -53,8 +53,12 @@ macro pager          tat "<exit><mark-message>q<enter><tag-thread>'q<display-mes
 macro index,pager    gx  "<pipe-message>urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose gx  "<pipe-entry>urlscan<Enter>"   "call urlscan to extract URLs out of a message"
 
-# Command Line
+# Calendar
 # ----------------------------------------------------
 
+
+
+# Command Line
+# ----------------------------------------------------
 bind editor \Cp history-up
 bind editor \Cn history-down

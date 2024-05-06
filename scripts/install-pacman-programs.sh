@@ -10,3 +10,5 @@ sudo pacman -S \
 	khal \
 	khard \
 	vdirsyncer \
+
+pip install --user mutt_ics

@@ -7,8 +7,7 @@ sudo apk add \
 	msmtp \
 	urlscan \
 	w3m \
-	khal \
 	vdirsyncer \
 
-# khard not available on apk
-pip install khard
+pip install --user khard
+pip install --user mutt_ics
