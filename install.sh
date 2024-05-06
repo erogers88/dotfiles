@@ -44,6 +44,7 @@ mkdir -p "$HOME/.config/khal"
 
 # Account-specific
 cp "$SCRIPTDIR/.config/neomutt/accounts.$ACCNAME" "$HOME/.config/neomutt/accounts"
+cp "$SCRIPTDIR/.config/neomutt/mailcap.$ACCNAME" "$HOME/.config/neomutt/mailcap"
 cp "$SCRIPTDIR/.config/vdirsyncer/config.$ACCNAME" "$HOME/.config/vdirsyncer/config"
 
 # Copy all config files
