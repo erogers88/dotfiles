@@ -1,3 +1,5 @@
+# vim: filetype=mailcap
+
 text/html; cp '%s' ~/.tempfilew3m.html && chromium ~/.tempfilew3m.html && sleep 1 && rm ~/.tempfilew3m.html;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 image/*; chromium '%s';

@@ -16,6 +16,7 @@ set imap_keepalive = 900
 set include
 set index_format = " %4C %Z %8@date@ %2@calendar@ %2@paperclip@ %-30.30L  %s "
 index-format-hook date      "~d<1d" "%[%I:%M %p]"
+index-format-hook date      "~d>5m" "%[%b %Y]
 index-format-hook date      "~A"     "%[%b %d]"
 index-format-hook calendar  "~M text/calendar" "📅"
 index-format-hook calendar  "~A" " "
