@@ -8,6 +8,6 @@ sudo apk add \
 	urlscan \
 	w3m \
 	vdirsyncer \
+	py3-icalendar \
 
 pip install --user khard
-pip install --user py3-icalendar

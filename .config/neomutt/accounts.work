@@ -3,7 +3,7 @@
 # Name and Address
 set from = "erik.w.rogers@spglobal.com"
 set realname = "Erik Rogers"
-set imap_user = "erik_rogers1"
+set imap_user = "erik.w.rogers@spglobal.com"
 set sendmail = "msmtp -a work"
 unset record
 set copy = no
@@ -20,3 +20,6 @@ macro generic,index,pager S "<shell-escape>mbsync work<enter>"
 
 # Dynamically get all folders
 mailboxes `ls "$HOME"/Maildir/work | sed -e 's/\</\"\+/;s/$/\"/' | tr '\n' ' '`
+
+# Contact auto-completion
+set query_command = "khard email --parsable --search-in-source-files '%s'"

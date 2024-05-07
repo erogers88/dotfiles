@@ -19,3 +19,6 @@ macro generic,index,pager S "<shell-escape>mbsync personal<enter>"
 
 # Dynamically get all folders
 mailboxes `ls "$HOME"/Maildir/personal | sed -e 's/\</\"\+/;s/$/\"/' | tr '\n' ' '`
+
+# Contact auto-completion
+set query_command = "khard email --parsable --search-in-source-files '%s'"

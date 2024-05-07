@@ -8,7 +8,6 @@ bind index,pager,attach  g         noop
 bind index,pager         d         noop
 bind index,pager         c         noop
 bind generic,pager       t         noop
-
 bind generic,index,pager \Cf       next-page
 bind generic,index,pager \Cb       previous-page
 bind generic             gg        first-entry
@@ -27,6 +26,7 @@ bind index               zA        collapse-all
 bind index,pager         N         search-opposite
 bind index               <Backtab> previous-new-then-unread
 
+
 # Sidebar
 # ----------------------------------------------------
 macro index,pager gi "<change-folder>=INBOX<enter>"       "open inbox"
@@ -38,6 +38,7 @@ bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Cl sidebar-open
 bind index,pager b sidebar-toggle-visible
+
 
 # Actions
 # ----------------------------------------------------
@@ -56,6 +57,10 @@ macro attach,compose gx  "<pipe-entry>urlscan<Enter>"   "call urlscan to extract
 # Calendar
 # ----------------------------------------------------
 
+
+# Contacts
+# ----------------------------------------------------
+bind editor <Tab> complete-query
 
 
 # Command Line

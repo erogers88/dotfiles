@@ -10,5 +10,4 @@ sudo pacman -S \
 	khal \
 	khard \
 	vdirsyncer \
-
-pip install --user python-icalendar
+	python-icalendar \
