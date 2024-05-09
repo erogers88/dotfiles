@@ -12,27 +12,27 @@ text/calendar; icalendar %s; copiousoutput
 application/ics; icalendar %s; copiousoutput
 
 # PDF
-application/pdf; chromium %s;
+application/pdf; chromium $(wslpath -w %s);
 
 # MS Office
-text/csv; excel %s;
-application/msword; word %s;
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; word %s;
-application/vnd.ms-powerpoint; powerpoint %s;
-application/vnd.openxmlformats-officedocument.presentationml.presentation; powerpoint %s;
-application/vnd.ms-excel; excel %s;
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; excel %s;
+text/csv; excel $(wslpath -w %s) &;
+application/msword; word $(wslpath -w %s) &;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; word $(wslpath -w %s) &;
+application/vnd.ms-powerpoint; powerpoint $(wslpath -w %s) &;
+application/vnd.openxmlformats-officedocument.presentationml.presentation; powerpoint $(wslpath -w %s) &;
+application/vnd.ms-excel; excel $(wslpath -w %s) &;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; excel $(wslpath -w %s) &;
 
 # OpenDocument
-application/vnd.oasis.opendocument.presentation; powerpoint %s;
-application/vnd.oasis.opendocument.spreadsheet; excel %s;
-application/vnd.oasis.opendocument.text; word %s;
-application/rtf; word %s;
+application/vnd.oasis.opendocument.presentation; powerpoint $(wslpath -w %s) &;
+application/vnd.oasis.opendocument.spreadsheet; excel $(wslpath -w %s) &;
+application/vnd.oasis.opendocument.text; word $(wslpath -w %s) &;
+application/rtf; word $(wslpath -w %s) &;
 
 # Misc
 application/json; nvim %s;
-audio/*; vlc %s;
-video/*; vlc %s;
+audio/*; vlc $(wslpath -w %s) &;
+video/*; vlc $(wslpath -w %s) &;
 application/x-httpd-php; nvim %s;
 application/x-sh; nvim %s;
 application/xml; nvim %s;
