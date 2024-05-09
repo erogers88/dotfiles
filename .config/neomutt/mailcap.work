@@ -1,7 +1,40 @@
 # vim: filetype=mailcap
 
+# HTML
 text/html; cp %s ~/.tempfilew3m.html && sed -i -e 's,/tmp,/Alpine-latest/tmp,g' ~/.tempfilew3m.html && chromium $(wslpath -w ~/.tempfilew3m.html) && sleep 1 && rm ~/.tempfilew3m.html;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+# Images
 image/*; chromium $(wslpath -w %s);
+
+# Calendar
 text/calendar; icalendar %s; copiousoutput
 application/ics; icalendar %s; copiousoutput
+
+# PDF
+application/pdf; chromium %s;
+
+# MS Office
+text/csv; excel %s;
+application/msword; word %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; word %s;
+application/vnd.ms-powerpoint; powerpoint %s;
+application/vnd.openxmlformats-officedocument.presentationml.presentation; powerpoint %s;
+application/vnd.ms-excel; excel %s;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; excel %s;
+
+# OpenDocument
+application/vnd.oasis.opendocument.presentation; powerpoint %s;
+application/vnd.oasis.opendocument.spreadsheet; excel %s;
+application/vnd.oasis.opendocument.text; word %s;
+application/rtf; word %s;
+
+# Misc
+application/json; nvim %s;
+audio/*; vlc %s;
+video/*; vlc %s;
+application/x-httpd-php; nvim %s;
+application/x-sh; nvim %s;
+application/xml; nvim %s;
+text/xml; nvim %s;
+
