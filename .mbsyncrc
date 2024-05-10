@@ -23,6 +23,7 @@ MaildirStore personal-local
 Path ~/Maildir/personal/
 Inbox ~/Maildir/personal/Inbox
 Flatten .
+Subfolders Verbatim
 
 Channel personal
 Master :personal-remote:
@@ -45,6 +46,7 @@ MaildirStore work-local
 Path ~/Maildir/work/
 Inbox ~/Maildir/work/Inbox
 Flatten .
+Subfolders Verbatim
 
 Channel work
 Master :work-remote:
