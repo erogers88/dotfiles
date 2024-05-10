@@ -16,7 +16,7 @@ set record = "+Sent"
 set trash = "+Trash"
 
 # mbsync
-macro generic,index,pager S "<shell-escape>mbsync work<enter>"
+macro generic,index,pager S "<shell-escape>mbsync work<enter><shell-escape>notmuch new<enter>"
 
 # Dynamically get all folders
 mailboxes `ls "$HOME"/Maildir/work | sed -e 's/\</\"\+/;s/$/\"/' | tr '\n' ' '`

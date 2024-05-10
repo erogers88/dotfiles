@@ -8,8 +8,6 @@ bind index,pager,attach  g         noop
 bind index,pager         d         noop
 bind index,pager         c         noop
 bind generic,pager       t         noop
-bind generic,index,pager \Cf       next-page
-bind generic,index,pager \Cb       previous-page
 bind generic             gg        first-entry
 bind generic,index       G         last-entry
 bind pager               gg        top
@@ -29,7 +27,7 @@ bind index               <Backtab> previous-new-then-unread
 
 # Sidebar
 # ----------------------------------------------------
-macro index,pager gi "<change-folder>=INBOX<enter>"       "open inbox"
+macro index,pager gi "<change-folder>=Inbox<enter>"       "open inbox"
 macro index,pager gd "<change-folder>=Drafts<enter>"      "open drafts"
 macro index,pager gs "<change-folder>=Sent<enter>"        "open sent"
 macro index,pager gt "<change-folder>$trash<enter>"       "open trash"
@@ -67,3 +65,6 @@ bind editor <Tab> complete-query
 # ----------------------------------------------------
 bind editor \Cp history-up
 bind editor \Cn history-down
+
+# notmuch
+bind index,pager \Cf vfolder-from-query

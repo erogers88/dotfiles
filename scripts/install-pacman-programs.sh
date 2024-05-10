@@ -11,3 +11,4 @@ sudo pacman -S \
 	khard \
 	vdirsyncer \
 	python-icalendar \
+	notmuch \

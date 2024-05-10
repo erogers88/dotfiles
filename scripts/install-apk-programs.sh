@@ -9,5 +9,6 @@ sudo apk add \
 	w3m \
 	vdirsyncer \
 	py3-icalendar \
+	notmuch \
 
 pip install --user khard
