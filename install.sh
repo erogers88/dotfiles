@@ -48,6 +48,7 @@ cp "$SCRIPTDIR/.config/neomutt/accounts.$ACCNAME" "$HOME/.config/neomutt/account
 cp "$SCRIPTDIR/.config/neomutt/mailcap.$ACCNAME" "$HOME/.config/neomutt/mailcap"
 cp "$SCRIPTDIR/.config/vdirsyncer/config.$ACCNAME" "$HOME/.config/vdirsyncer/config"
 cp "$SCRIPTDIR/.config/khard/khard.conf.$ACCNAME" "$HOME/.config/khard/khard.conf"
+cp "$SCRIPTDIR/.notmuch-config.$ACCNAME" "$HOME/.notmuch-config"
 
 # Copy all config files
 cp -r "$SCRIPTDIR/.config/"* "$HOME/.config"
@@ -59,7 +60,6 @@ cp "$SCRIPTDIR/.tmux.conf" "$HOME"
 cp "$SCRIPTDIR/.mbsyncrc" "$HOME"
 cp "$SCRIPTDIR/.msmtprc" "$HOME"
 cp "$SCRIPTDIR/.gnupg/gpg.conf" "$HOME/.gnupg/gpg.conf"
-cp "$SCRIPTDIR/.notmuch-config" "$HOME/.notmuch-config"
 
 # Detect Windows and Copy Windows-Specific configs
 UNAME="$(uname -a)"
