@@ -23,6 +23,10 @@ fi
 rm -rf "$HOME/.config/nvim"
 rm -rf "$HOME/.local/share/nvim"
 rm -rf "$HOME/.local/state/nvim"
+rm -rf "$HOME/.cache/nvim"
+
+# Remove neomutt files
+rm -rf "$HOME/.cache/neomutt"
 
 # Make directories if needed
 mkdir -p "$HOME/.config/alacritty"

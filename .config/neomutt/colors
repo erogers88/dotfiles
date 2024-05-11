@@ -32,6 +32,8 @@ color sidebar_new        color070 color235
 
 color index color070 color235 ~N
 color index color070 color235 ~O
+color index color070 color235 "~(~N~v)"
+color index color070 color235 "~(~O~v)"
 color index color001 color235 ~N~F
 color index color001 color235 ~O~F
 color index color167 color235 ~=
