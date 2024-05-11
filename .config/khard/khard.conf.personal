@@ -5,7 +5,7 @@
 
 [addressbooks]
 [[personal]]
-path = ~/.contacts/personal/z-server-generated--system
+path = ~/.contacts/personal/contacts
 
 [general]
 debug = no

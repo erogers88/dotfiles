@@ -12,3 +12,4 @@ sudo pacman -S \
 	vdirsyncer \
 	python-icalendar \
 	notmuch \
+	calcurse \

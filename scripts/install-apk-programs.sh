@@ -10,5 +10,6 @@ sudo apk add \
 	vdirsyncer \
 	py3-icalendar \
 	notmuch \
+	calcurse \
 
 pip install --user khard

@@ -45,7 +45,6 @@ mkdir -p "$HOME/.calendars/work"
 mkdir -p "$HOME/.contacts/personal"
 mkdir -p "$HOME/.contacts/work"
 mkdir -p "$HOME/.config/vdirsyncer"
-mkdir -p "$HOME/.config/khal"
 
 # Account-specific
 cp "$SCRIPTDIR/.config/neomutt/accounts.$ACCNAME" "$HOME/.config/neomutt/accounts"
@@ -86,8 +85,14 @@ if echo "$UNAME" | grep 'Microsoft'; then
 fi
 
 echo "Success"
-echo "create ~/.msmtppass.gpg using gpg to encrypt mail IMAP/SMTP password, if it doesn't exist"
-echo "create ~/.davpass.gpg using gpg to encrypt caldav/carddav password, if it doesn't exist"
+
+if [ ! -f "$HOME/.msmtppass.gpg" ]; then
+	echo "create ~/.msmtppass.gpg using gpg to encrypt mail IMAP/SMTP password, if it doesn't exist"
+fi
+
+if [ ! -f "$HOME/.davpass.gpg" ]; then
+	echo "create ~/.davpass.gpg using gpg to encrypt caldav/carddav password, if it doesn't exist"
+fi
+
 echo "run 'mbsync [personal | work] before using neomutt if you haven't on this machine yet"
-echo "run 'vdirsyncer discover' & 'vdirsyncer sync' to sync calendars and contacts"
-echo "run 'khal configure' to set up calendars, if running for the first time"
+echo "run 'vdirsyncer discover' and 'vdirsyncer sync' to sync calendars and contacts"
