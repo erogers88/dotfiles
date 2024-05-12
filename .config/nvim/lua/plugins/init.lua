@@ -52,7 +52,10 @@ require('lazy').setup(
     -- Git Integrations
     require('plugins.git'),
 
-    -- LSP and Mason
+    -- Mason
+    { 'williamboman/mason.nvim', config = true },
+
+    -- LSP and Mason-LSP Integration
     require('plugins.lsp-mason'),
 
     -- Statusline
