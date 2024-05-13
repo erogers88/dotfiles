@@ -54,15 +54,9 @@ return {
 
       -- LSP servers
       local servers = {
-
-        lua_ls = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-          }
-        },
-        pyright = {},
-        bashls = {}
+        "lua_ls",
+        "pyright",
+        "bashls"
       }
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
