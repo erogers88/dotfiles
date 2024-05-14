@@ -59,6 +59,7 @@ macro attach,compose gx  "<pipe-entry>urlscan<Enter>"   "call urlscan to extract
 # Contacts
 # ----------------------------------------------------
 bind editor <Tab> complete-query
+macro index,pager A "<pipe-message>khard add-email<return>" "add the sender email address to khard"
 
 
 # Command Line
