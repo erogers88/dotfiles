@@ -44,7 +44,6 @@ mkdir -p "$HOME/.calendars/personal"
 mkdir -p "$HOME/.calendars/work"
 mkdir -p "$HOME/.contacts/personal"
 mkdir -p "$HOME/.contacts/work"
-mkdir -p "$HOME/.config/vdirsyncer"
 
 # Account-specific
 cp "$SCRIPTDIR/.config/neomutt/accounts.$ACCNAME" "$HOME/.config/neomutt/accounts"
@@ -52,6 +51,7 @@ cp "$SCRIPTDIR/.config/neomutt/mailcap.$ACCNAME" "$HOME/.config/neomutt/mailcap"
 cp "$SCRIPTDIR/.config/vdirsyncer/config.$ACCNAME" "$HOME/.config/vdirsyncer/config"
 cp "$SCRIPTDIR/.config/khard/khard.conf.$ACCNAME" "$HOME/.config/khard/khard.conf"
 cp "$SCRIPTDIR/.notmuch-config.$ACCNAME" "$HOME/.notmuch-config"
+cp "$SCRIPTDIR/.gitconfig.$ACCNAME" "$HOME/.gitconfig"
 
 # Copy all config files
 cp -r "$SCRIPTDIR/.config/"* "$HOME/.config"

@@ -1,0 +1,7 @@
+[user]
+	name = Erik Rogers
+	email = erik.w.rogers@spglobal.com
+[init]
+	defaultBranch = master
+[core]
+	editor = nvim
