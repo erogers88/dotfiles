@@ -2,6 +2,7 @@
 
 sudo apk add \
 	neovim \
+	python3 \
 	py3-pynvim \
 	neomutt \
 	isync \
