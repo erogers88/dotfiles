@@ -1,13 +1,22 @@
 # vim: filetype=muttrc
 
-# Navigation
-# ----------------------------------------------------
 
+# Unbind
+# ----------------------------------------------------
 bind generic             z         noop
 bind index,pager,attach  g         noop
 bind index,pager         d         noop
 bind index,pager         c         noop
 bind generic,pager       t         noop
+bind compose             d         noop
+bind compose             D         noop
+bind compose             p         noop
+bind compose             P         noop
+bind index,pager         R         noop
+
+
+# Navigation
+# ----------------------------------------------------
 bind generic             gg        first-entry
 bind generic,index       G         last-entry
 bind pager               gg        top
@@ -52,6 +61,7 @@ macro pager          tat "<exit><mark-message>q<enter><tag-thread>'q<display-mes
 macro index,pager    gx  "<pipe-message>urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose gx  "<pipe-entry>urlscan<Enter>"   "call urlscan to extract URLs out of a message"
 
+
 # Calendar
 # ----------------------------------------------------
 
@@ -67,5 +77,52 @@ macro index,pager A "<pipe-message>khard add-email<return>" "add the sender emai
 bind editor \Cp history-up
 bind editor \Cn history-down
 
+
 # notmuch
+# ----------------------------------------------------
 bind index,pager \Cf vfolder-from-query
+
+
+# Composition
+# ----------------------------------------------------
+bind  compose dd  detach-file
+bind  compose D   edit-description
+bind  compose P   postpone-message
+bind  compose \Cp pgp-menu
+
+## Create multi-part alternative HTML in compose menu from markdown
+macro compose m "<enter-command>set pipe_decode<enter>\
+<first-entry>\
+<pipe-entry>pandoc -f markdown -t html5 --standalone -o /tmp/neomutt-msg.html --quiet<enter>\
+<enter-command>unset pipe_decode<enter>\
+<attach-file>/tmp/neomutt-msg.html<enter>\
+<toggle-disposition><toggle-unlink>\
+<tag-entry><first-entry><tag-entry><group-alternatives>" \
+"Create multi-part alternative HTML in compose menu from markdown"
+
+## Convert markdown to plaintext in compose menu
+macro compose p "<enter-command>set pipe_decode<enter>\
+<first-entry>\
+<ungroup-attachment>\
+<detach-file>y\
+<pipe-entry>pandoc -f markdown -t html5 --standalone --quiet |\
+\ w3m -T 'text/html' -dump | tail -n +3 > /tmp/neomutt-plain-convert.txt<enter>\
+<enter-command>unset pipe_decode<enter>\
+<attach-file>/tmp/neomutt-plain-convert.txt<enter>\
+<toggle-disposition><toggle-unlink>\
+<tag-entry><move-up><move-up><move-up><move-up>//tmp/neomutt-msg.html<enter><tag-entry><group-alternatives>" \
+"Convert markdown to plaintext in compose menu"
+
+## Reply to HTML email and place original HTML as inline attachment
+macro index,pager R "<view-attachments>/html<enter>\
+<shell-escape>touch /tmp/neomutt-original-email.html<enter>\
+<shell-escape>rm /tmp/neomutt-original-email.html<enter>\
+<save-entry>/tmp/neomutt-original-email.html<enter><exit>\
+<enter-command>unset include<enter>\
+<reply>\
+<enter-command>set include<enter>\
+<attach-file>/tmp/neomutt-original-email.html<enter>\
+<toggle-disposition><toggle-unlink>" \
+"Reply to HTML email and place original HTML as inline attachment"
+
+macro index,pager L "<enter-command>unset include<enter>"

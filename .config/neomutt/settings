@@ -12,12 +12,12 @@ set editor = "nvim"
 set envelope_from
 set fast_reply
 set fcc_attach
-set forward_decode
+set forward_decode = yes
 set forward_format = "Fwd: %s"
-set forward_quote
+set forward_quote = yes
 set header_cache = "~/.cache/neomutt/"
 set imap_keepalive = 900
-set include
+set include=yes
 set index_format = " %4C %Z %8@date@ %2@calendar@ %2@paperclip@ %-30.30L  %s "
 index-format-hook date      "~d<1d" "%[%I:%M %p]"
 index-format-hook date      "~d>5m" "%[%b %Y]
@@ -30,8 +30,8 @@ set mail_check = 30
 set mail_check_stats
 set menu_scroll
 set message_cache_dir = "~/.cache/neomutt/"
-set mime_forward
-set move=no
+set mime_forward = no
+set move = no
 set pager_context = 3
 set pager_index_lines = 20
 set pager_stop
@@ -51,7 +51,7 @@ set sort_aux = last-date-received
 set sort_re
 set ssl_force_tls = yes
 set ssl_starttls = yes
-set text_flowed=yes
+set text_flowed = yes
 set tilde
 set uncollapse_jump
 set use_from

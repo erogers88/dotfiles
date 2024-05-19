@@ -1,7 +1,7 @@
 # vim: filetype=mailcap
 
 # HTML
-text/html; cp %s ~/.tempfilew3m.html && sed -i -e 's,/tmp,/Alpine-latest/tmp,g' ~/.tempfilew3m.html && chromium $(wslpath -w ~/.tempfilew3m.html) && sleep 1 && rm ~/.tempfilew3m.html;
+text/html; cp %s /tmp/neomutt-w3m.html && sed -i -e 's,/tmp,/Alpine-latest/tmp,g' /tmp/neomutt-w3m.html && chromium $(wslpath -w /tmp/neomutt-w3m.html) && sleep 1 && rm /tmp/neomutt-w3m.html;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
 # Images
