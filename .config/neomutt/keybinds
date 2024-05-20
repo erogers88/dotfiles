@@ -104,9 +104,11 @@ macro compose m "<enter-command>set pipe_decode<enter>\
 macro compose p "<enter-command>set pipe_decode<enter>\
 <first-entry>\
 <ungroup-attachment>\
+<shell-escape>touch /tmp/neomutt-plain-original.txt<enter>\
+<shell-escape>rm /tmp/neomutt-plain-original.txt<enter>\
+<save-entry>/tmp/neomutt-plain-original.txt<enter>\
 <detach-file>y\
-<pipe-entry>pandoc -f markdown -t html5 --standalone --quiet |\
-\ w3m -T 'text/html' -dump | tail -n +3 > /tmp/neomutt-plain-convert.txt<enter>\
+<shell-escape>pandoc -f markdown -t plain -o /tmp/neomutt-plain-convert.txt --quiet /tmp/neomutt-plain-original.txt<enter>\
 <enter-command>unset pipe_decode<enter>\
 <attach-file>/tmp/neomutt-plain-convert.txt<enter>\
 <toggle-disposition><toggle-unlink>\
@@ -125,4 +127,3 @@ macro index,pager R "<view-attachments>/html<enter>\
 <toggle-disposition><toggle-unlink>" \
 "Reply to HTML email and place original HTML as inline attachment"
 
-macro index,pager L "<enter-command>unset include<enter>"
