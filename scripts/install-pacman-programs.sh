@@ -14,3 +14,7 @@ sudo pacman -S \
 	notmuch \
 	calcurse \
 	khard \
+	python-beautifulsoup4 \
+
+pip install --user css-inline
+pip install --user mutt-html-reply

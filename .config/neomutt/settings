@@ -5,7 +5,7 @@ set askcc
 set attach_save_dir = "~/Downloads"
 set attribution = "On %d, %n wrote:"
 set charset = "utf-8"
-set collapse_all
+set collapse_all = no
 set count_alternatives
 set edit_headers
 set editor = "nvim"

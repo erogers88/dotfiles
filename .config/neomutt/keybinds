@@ -89,6 +89,7 @@ bind  compose dd  detach-file
 bind  compose D   edit-description
 bind  compose P   postpone-message
 bind  compose \Cp pgp-menu
+bind  compose O   autocrypt-menu
 
 ## Create multi-part alternative HTML in compose menu from markdown
 macro compose m "<enter-command>set pipe_decode<enter>\
@@ -116,7 +117,9 @@ macro compose p "<enter-command>set pipe_decode<enter>\
 "Convert markdown to plaintext in compose menu"
 
 ## Reply to HTML email and place original HTML as inline attachment
-macro index,pager R "<view-attachments>/html<enter>\
+macro index,pager R "\
+<pipe-entry>grep -E '^(Date:|From:|To:|Cc:|Subject:)' >/tmp/neomutt-original-email-headers.txt<enter>\
+<view-attachments>/html<enter>\
 <shell-escape>touch /tmp/neomutt-original-email.html<enter>\
 <shell-escape>rm /tmp/neomutt-original-email.html<enter>\
 <save-entry>/tmp/neomutt-original-email.html<enter><exit>\
@@ -124,6 +127,24 @@ macro index,pager R "<view-attachments>/html<enter>\
 <reply>\
 <enter-command>set include<enter>\
 <attach-file>/tmp/neomutt-original-email.html<enter>\
+<toggle-disposition><toggle-unlink>\
+<attach-file>/tmp/neomutt-original-email-headers.txt<enter>\
 <toggle-disposition><toggle-unlink>" \
 "Reply to HTML email and place original HTML as inline attachment"
 
+## Parse and add HTML original-email as quoted part
+macro compose o "\
+<first-entry>\
+<ungroup-attachment>\
+<shell-escape>mutt-html-reply /tmp/neomutt-msg.html /tmp/neomutt-original-email.html /tmp/neomutt-original-email-headers.txt /tmp/neomutt-combined-reply.html<enter>\
+<attach-file>/tmp/neomutt-combined-reply.html<enter>\
+<toggle-disposition><toggle-unlink>\
+<search>neomutt-msg.html<enter>\
+<detach-file>\
+<search>neomutt-original-email.html<enter>\
+<detach-file>\
+<search>neomutt-original-email-headers.txt<enter>\
+<detach-file>\
+<first-entry><tag-entry><search>neomutt-combined-reply.html<enter><tag-entry>\
+<group-alternatives>" \
+"Parse and add HTML original-email as quoted part"
