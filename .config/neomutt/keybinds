@@ -49,7 +49,7 @@ bind index,pager b sidebar-toggle-visible
 
 # Actions
 # ----------------------------------------------------
-bind  index,pager    a   group-reply
+bind  index,pager    a   group-chat-reply
 macro index,pager    c   "<change-folder>?"
 macro index,pager    C   "<copy-message>?"
 macro index,pager    dd  "<delete-message><sync-mailbox>" "move message to trash"
@@ -69,7 +69,7 @@ macro attach,compose gx  "<pipe-entry>urlscan<Enter>"   "call urlscan to extract
 # Contacts
 # ----------------------------------------------------
 bind editor <Tab> complete-query
-macro index,pager A "<pipe-message>khard add-email<return>" "add the sender email address to khard"
+macro index,pager E "<pipe-message>khard add-email<return>" "add the sender email address to khard"
 
 
 # Command Line
@@ -118,32 +118,40 @@ macro compose p "<enter-command>set pipe_decode<enter>\
 
 ## Reply to HTML email and place original HTML as inline attachment
 macro index,pager R "\
-<pipe-entry>grep -E '^(Date:|From:|To:|Cc:|Subject:)' >/tmp/neomutt-original-email-headers.txt<enter>\
-<view-attachments>/html<enter>\
-<shell-escape>touch /tmp/neomutt-original-email.html<enter>\
-<shell-escape>rm /tmp/neomutt-original-email.html<enter>\
-<save-entry>/tmp/neomutt-original-email.html<enter><exit>\
+<shell-escape>touch /tmp/neomutt-original-email.msg<enter>\
+<shell-escape>rm /tmp/neomutt-original-email.msg<enter>\
+<save-message>/tmp/neomutt-original-email.msg<enter>y<enter>\
 <enter-command>unset include<enter>\
+<previous-entry><undelete-message><previous-entry>\
 <reply>\
 <enter-command>set include<enter>\
-<attach-file>/tmp/neomutt-original-email.html<enter>\
-<toggle-disposition><toggle-unlink>\
-<attach-file>/tmp/neomutt-original-email-headers.txt<enter>\
+<attach-file>/tmp/neomutt-original-email.msg<enter>\
 <toggle-disposition><toggle-unlink>" \
-"Reply to HTML email and place original HTML as inline attachment"
+"Reply to HTML email and place original message as attachment in new message"
+
+## Reply to HTML email and place original HTML as inline attachment (reply all)
+macro index,pager A "\
+<shell-escape>touch /tmp/neomutt-original-email.msg<enter>\
+<shell-escape>rm /tmp/neomutt-original-email.msg<enter>\
+<save-message>/tmp/neomutt-original-email.msg<enter>y<enter>\
+<enter-command>unset include<enter>\
+<previous-entry><undelete-message><previous-entry>\
+<group-chat-reply>\
+<enter-command>set include<enter>\
+<attach-file>/tmp/neomutt-original-email.msg<enter>\
+<toggle-disposition><toggle-unlink>" \
+"Reply to HTML email and place original message as attachment in new message (reply all)"
 
 ## Parse and add HTML original-email as quoted part
 macro compose o "\
 <first-entry>\
 <ungroup-attachment>\
-<shell-escape>mutt-html-reply /tmp/neomutt-msg.html /tmp/neomutt-original-email.html /tmp/neomutt-original-email-headers.txt /tmp/neomutt-combined-reply.html<enter>\
+<shell-escape>mutt-html-reply -r /tmp/neomutt-msg.html -m /tmp/neomutt-original-email.msg -o /tmp/neomutt-combined-reply.html<enter>\
 <attach-file>/tmp/neomutt-combined-reply.html<enter>\
 <toggle-disposition><toggle-unlink>\
 <search>neomutt-msg.html<enter>\
 <detach-file>\
-<search>neomutt-original-email.html<enter>\
-<detach-file>\
-<search>neomutt-original-email-headers.txt<enter>\
+<search>neomutt-original-email.msg<enter>\
 <detach-file>\
 <first-entry><tag-entry><search>neomutt-combined-reply.html<enter><tag-entry>\
 <group-alternatives>" \
