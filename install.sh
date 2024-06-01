@@ -63,6 +63,7 @@ cp "$SCRIPTDIR/.tmux.conf" "$HOME"
 cp "$SCRIPTDIR/.mbsyncrc" "$HOME"
 cp "$SCRIPTDIR/.msmtprc" "$HOME"
 cp "$SCRIPTDIR/.gnupg/gpg.conf" "$HOME/.gnupg/gpg.conf"
+cp "$SCRIPTDIR/.pandoc-meta-sans-serif" "$HOME/.pandoc-meta-sans-serif"
 
 # Detect Windows and Copy Windows-Specific configs
 UNAME="$(uname -a)"
