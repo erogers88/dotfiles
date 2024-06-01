@@ -89,12 +89,12 @@ bind  compose dd  detach-file
 bind  compose D   edit-description
 bind  compose P   postpone-message
 bind  compose \Cp pgp-menu
-bind  compose O   autocrypt-menu
+#bind  compose O   autocrypt-menu
 
 ## Create multi-part alternative HTML in compose menu from markdown
 macro compose m "<enter-command>set pipe_decode<enter>\
 <first-entry>\
-<pipe-entry>pandoc -f markdown -t html5 --standalone -o /tmp/neomutt-msg.html --quiet<enter>\
+<pipe-entry>pandoc -f markdown -t html5 --standalone --metadata-file /home/erik/.pandoc-meta-sans-serif -o /tmp/neomutt-msg.html --quiet<enter>\
 <enter-command>unset pipe_decode<enter>\
 <attach-file>/tmp/neomutt-msg.html<enter>\
 <toggle-disposition><toggle-unlink>\
