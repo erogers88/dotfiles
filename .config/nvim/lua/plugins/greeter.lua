@@ -22,6 +22,7 @@ return {
             ""
           },
           shortcut = {
+            { desc = '⇧ Quit', group = 'Normal', action = 'q', key = 'q' },
             { desc = '󰈙  New Buffer', group = 'Normal', action = 'enew', key = 'n' },
             { desc = '󰏓  Filetree', group = 'Directory',
               action = 'Neotree action=focus source=filesystem position=float toggle=true', key = 't' },
