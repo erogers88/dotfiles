@@ -156,3 +156,16 @@ macro compose o "\
 <first-entry><tag-entry><search>neomutt-combined-reply.html<enter><tag-entry>\
 <group-alternatives>" \
 "Parse and add HTML original-email as quoted part"
+
+macro compose P "<enter-command>set pipe_decode<enter>\
+<first-entry>\
+<ungroup-attachment>\
+<detach-file>y\
+<shell-escape>touch /tmp/neomutt-plain-convert.txt<enter>\
+<shell-escape>rm /tmp/neomutt-plain-convert.txt<enter>\
+<shell-escape>pandoc -f html -t plain -o /tmp/neomutt-plain-convert.txt --quiet /tmp/neomutt-combined-reply.html<enter>\
+<enter-command>unset pipe_decode<enter>\
+<attach-file>/tmp/neomutt-plain-convert.txt<enter>\
+<toggle-disposition><toggle-unlink>\
+<tag-entry><move-up><move-up><move-up><move-up><search>/tmp/neomutt-combined-reply.html<enter><tag-entry><group-alternatives>" \
+"Convert combined-html to plaintext in compose menu"
