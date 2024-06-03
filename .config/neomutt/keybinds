@@ -146,7 +146,7 @@ macro index,pager A "\
 macro compose o "\
 <first-entry>\
 <ungroup-attachment>\
-<shell-escape>mutt-html-reply -r /tmp/neomutt-msg.html -m /tmp/neomutt-original-email.msg -o /tmp/neomutt-combined-reply.html<enter>\
+<shell-escape>mutt-html-reply -r /tmp/neomutt-msg.html -m /tmp/neomutt-original-email.msg -z 'America/New_York' -o /tmp/neomutt-combined-reply.html<enter>\
 <attach-file>/tmp/neomutt-combined-reply.html<enter>\
 <toggle-disposition><toggle-unlink>\
 <search>neomutt-msg.html<enter>\
