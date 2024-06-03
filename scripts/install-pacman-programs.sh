@@ -4,6 +4,7 @@ sudo pacman -S \
 	neovim \
 	python \
 	python-pynvim \
+	python-pip \
 	neomutt \
 	isync \
 	msmtp \

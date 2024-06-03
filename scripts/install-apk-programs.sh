@@ -4,6 +4,7 @@ sudo apk add \
 	neovim \
 	python3 \
 	py3-pynvim \
+	py3-pip \
 	neomutt \
 	isync \
 	msmtp \
