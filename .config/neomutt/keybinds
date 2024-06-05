@@ -163,7 +163,8 @@ macro compose P "<enter-command>set pipe_decode<enter>\
 <detach-file>y\
 <shell-escape>touch /tmp/neomutt-plain-convert.txt<enter>\
 <shell-escape>rm /tmp/neomutt-plain-convert.txt<enter>\
-<shell-escape>pandoc -f html -t plain -o /tmp/neomutt-plain-convert.txt --quiet /tmp/neomutt-combined-reply.html<enter>\
+<search>/tmp/neomutt-combined-reply.html<enter>\
+<pipe-entry>w3m -T text/html > /tmp/neomutt-plain-convert.txt<enter>\
 <enter-command>unset pipe_decode<enter>\
 <attach-file>/tmp/neomutt-plain-convert.txt<enter>\
 <toggle-disposition><toggle-unlink>\
