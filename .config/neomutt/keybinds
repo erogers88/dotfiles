@@ -94,7 +94,7 @@ bind  compose \Cp pgp-menu
 ## Create multi-part alternative HTML in compose menu from markdown
 macro compose m "<enter-command>set pipe_decode<enter>\
 <first-entry>\
-<pipe-entry>pandoc -f markdown -t html5 --standalone --css ~/.pandoc-styling.css -H ~/.pandoc-styling.css -o /tmp/neomutt-msg.html --quiet<enter>\
+<pipe-entry>pandoc -f markdown -t html5 --standalone --css ~/.pandoc-styling.css -H ~/.pandoc-styling.css -V colorlinks=true -V urlcolor=blue -V linkcolor=blue -o /tmp/neomutt-msg.html --quiet<enter>\
 <enter-command>unset pipe_decode<enter>\
 <attach-file>/tmp/neomutt-msg.html<enter>\
 <toggle-disposition><toggle-unlink>\
