@@ -83,6 +83,9 @@ if echo "$UNAME" | grep 'Microsoft'; then
 	if [ "$(apk --version >/dev/null 2>&1)" = "0" ]; then
 		cp "$SCRIPTDIR/wsl/node" "$HOME/.local/bin"
 	fi
+
+	# add BROWSER variable
+	printf "\nexport BROWSER=/usr/local/bin/chromium\n" >> "$HOME/.bashrc"
 	
 fi
 
