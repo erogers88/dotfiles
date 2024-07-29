@@ -59,6 +59,7 @@ PATH="$HOME/.npm-global/bin:$PATH"
 
 # local binaries
 PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 
 # GPG
 GPG_TTY=$(tty)
