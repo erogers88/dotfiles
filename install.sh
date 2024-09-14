@@ -79,6 +79,10 @@ if echo "$UNAME" | grep 'Microsoft'; then
 	mkdir -p "$USERPROFILE/AppData/Roaming/alacritty"
 	cp "$SCRIPTDIR/wsl/alacritty-wsl.toml" "$USERPROFILE/AppData/Roaming/alacritty/alacritty.toml"
 
+	# komorebi
+	cp "$SCRIPTDIR/wsl/komorebi.ahk" "$USERPROFILE/komorebi.ahk"
+	cp "$SCRIPTDIR/wsl/komorebi.json" "$USERPROFILE/komorebi.json"
+
 	# node fix for musl-based system (check for apk program)
 	if [ "$(apk --version >/dev/null 2>&1)" = "0" ]; then
 		cp "$SCRIPTDIR/wsl/node" "$HOME/.local/bin"

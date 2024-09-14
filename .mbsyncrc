@@ -52,3 +52,8 @@ Channel work
 Master :work-remote:
 Slave :work-local:
 Patterns *
+
+Channel work-inbox
+Master :work-remote:
+Slave :work-local:
+Patterns INBOX
