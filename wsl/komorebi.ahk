@@ -6,9 +6,11 @@ Komorebic(cmd) {
 }
 
 ; quit and close window
+#s::Komorebic("start --ahk")
 #q::Komorebic("stop")
 #c::Komorebic("close")
 #m::Komorebic("manage")
+#u::Komorebic("unmanage")
 
 ; hjkl to move focus
 #h::Komorebic("focus left")
