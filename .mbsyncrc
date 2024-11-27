@@ -13,7 +13,7 @@ Host imap.rogers-family.net
 Port 993
 User erik
 PassCmd "gpg --decrypt --quiet ~/.msmtppass.gpg"
-SSLType IMAPS
+TLSType IMAPS
 AuthMechs PLAIN
 
 IMAPStore personal-remote
@@ -26,8 +26,8 @@ Flatten .
 Subfolders Verbatim
 
 Channel personal
-Master :personal-remote:
-Slave :personal-local:
+Far :personal-remote:
+Near :personal-local:
 Patterns *
 
 ## Work
@@ -36,7 +36,7 @@ Host 127.0.0.1
 Port 1143
 User erik.w.rogers@spglobal.com
 PassCmd "gpg --decrypt --quiet ~/.msmtppass.gpg"
-SSLType None
+TLSType None
 AuthMechs LOGIN
 
 IMAPStore work-remote
@@ -49,11 +49,11 @@ Flatten .
 Subfolders Verbatim
 
 Channel work
-Master :work-remote:
-Slave :work-local:
+Far :work-remote:
+Near :work-local:
 Patterns *
 
 Channel work-inbox
-Master :work-remote:
-Slave :work-local:
+Far :work-remote:
+Near :work-local:
 Patterns INBOX
