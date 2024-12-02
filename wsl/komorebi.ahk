@@ -10,7 +10,6 @@ Komorebic(cmd) {
 #q::Komorebic("stop")
 #c::Komorebic("close")
 #m::Komorebic("manage")
-#u::Komorebic("unmanage")
 
 ; hjkl to move focus
 #h::Komorebic("focus left")
