@@ -14,9 +14,6 @@ set clipboard=unnamedplus
 " Enable break indent
 set breakindent
 
-" Save undo history
-set undofile
-
 " Case-insensitive searching UNLESS \C or capital in search
 set ignorecase
 set smartcase
