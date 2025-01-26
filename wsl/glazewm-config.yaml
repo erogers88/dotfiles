@@ -304,3 +304,7 @@ keybindings:
     bindings: ['lwin+shift+5', 'rwin+shift+5']
   - commands: ['move --workspace 6', 'focus --workspace 6']
     bindings: ['lwin+shift+6', 'rwin+shift+6']
+
+  # Call ms-screenclip: manually because normal shortcut broken
+  - commands: ['shell-exec ms-screenclip:']
+    bindings: ['lwin+shift+s', 'rwin+shift:s']
