@@ -84,6 +84,10 @@ if echo "$UNAME" | grep 'Microsoft'; then
 	cp "$SCRIPTDIR/wsl/komorebi.ahk" "$USERPROFILE/komorebi.ahk"
 	cp "$SCRIPTDIR/wsl/komorebi.json" "$USERPROFILE/komorebi.json"
 
+	# glazewm
+	mkdir -p "$USERPROFILE/.glzr/glazewm"
+	cp "$SCRIPTDIR/wsl/glazewm-config.yaml" "$USERPROFILE/.glzr/glazewm/config.yaml"
+
 	# node fix for musl-based system (check for apk program)
 	if [ "$(apk --version >/dev/null 2>&1)" = "0" ]; then
 		cp "$SCRIPTDIR/wsl/node" "$HOME/.local/bin"
