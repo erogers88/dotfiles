@@ -19,6 +19,22 @@ elif [ "$PORW" = "w" ]; then
 else echo "Response not recognized, aborting..." && exit
 fi
 
+# Desktop or Laptop?
+read_char() {
+  echo "Is this a desktop or laptop [d/l]?"
+  stty -icanon -echo
+  eval "$1=\$(dd bs=1 count=1 2>/dev/null)"
+  stty icanon echo
+}
+read_char DORL
+
+if [ "$DORL" = "d" ]; then
+	PHYSTYPE="desktop"
+elif [ "$DORL" = "l" ]; then
+	PHYSTYPE="laptop"
+else echo "Response not recognized, aborting..." && exit
+fi
+
 # Remove any existing nvim files
 rm -rf "$HOME/.config/nvim"
 rm -rf "$HOME/.local/share/nvim"
@@ -52,6 +68,7 @@ cp "$SCRIPTDIR/.config/vdirsyncer/config.$ACCNAME" "$HOME/.config/vdirsyncer/con
 cp "$SCRIPTDIR/.config/khard/khard.conf.$ACCNAME" "$HOME/.config/khard/khard.conf"
 cp "$SCRIPTDIR/.notmuch-config.$ACCNAME" "$HOME/.notmuch-config"
 cp "$SCRIPTDIR/.gitconfig.$ACCNAME" "$HOME/.gitconfig"
+cp "$SCRIPTDIR/.config/hypr/hyprland.conf.$PHYSTYPE" "$HOME/.config/hypr/hyprland.conf"
 
 # Copy all config files
 cp -r "$SCRIPTDIR/.config/"* "$HOME/.config"
