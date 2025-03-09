@@ -42,7 +42,8 @@ foreground = "0xd6d6d6"
 TERM = "xterm-256color"
 startup_mode = "Maximized"
 
-[shell]
+[terminal]
+[terminal.shell]
 args = ["~", "tmux"]
 program = "wsl"
 
