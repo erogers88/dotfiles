@@ -87,7 +87,7 @@ cp "$SCRIPTDIR/.vimrc" "$HOME/.vimrc"
 
 # Detect Windows and Copy Windows-Specific configs
 UNAME="$(uname -a)"
-if echo "$UNAME" | grep 'Microsoft'; then
+if echo "$UNAME" | grep -i 'microsoft'; then
 	if [ -z "$USERPROFILE" ]; then
 		eval "/mnt/c/Windows/system32/cmd.exe /c setx WSLENV USERPROFILE/up"
 		echo "Restart WSL to reset environment variables and rerun script"
