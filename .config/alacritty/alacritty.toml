@@ -43,7 +43,6 @@ TERM = "xterm-256color"
 startup_mode = "Maximized"
 
 [terminal]
-
 [terminal.shell]
 args = ["--login", "-c", "tmux"]
 program = "/bin/sh"
