@@ -84,6 +84,7 @@ cp "$SCRIPTDIR/.gnupg/gpg.conf" "$HOME/.gnupg/gpg.conf"
 cp "$SCRIPTDIR/.gnupg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 cp "$SCRIPTDIR/.pandoc-styling.css" "$HOME/.pandoc-styling.css"
 cp "$SCRIPTDIR/.vimrc" "$HOME/.vimrc"
+cp "$SCRIPTDIR/.davmail.properties" "$HOME/.davmail.properties"
 
 # Detect Windows and Copy Windows-Specific configs
 UNAME="$(uname -a)"
