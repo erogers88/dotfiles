@@ -67,3 +67,6 @@ export GPG_TTY
 
 # NCurses Escape Delay
 export ESCDELAY=10
+
+# Editor
+export EDITOR=/bin/nvim
