@@ -52,6 +52,7 @@ $browser = firefox-bin
 
 # exec-once = waybar
 exec-once = $terminal
+exec-once = gentoo-pipewire-launcher
 # exec-once = nm-applet &
 # exec-once = waybar & hyprpaper & firefox
 
