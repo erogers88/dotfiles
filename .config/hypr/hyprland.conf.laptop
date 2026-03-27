@@ -51,7 +51,7 @@ $browser = firefox-bin
 # Or execute your favorite apps at launch like this:
 
 # exec-once = waybar
-exec-once = $terminal
+exec-once = [workspace 1] $terminal
 # exec-once = nm-applet &
 # exec-once = waybar & hyprpaper & firefox
 
@@ -281,7 +281,7 @@ bindm = $mainMod, mouse:273, resizewindow
 
 windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 
-workspace = 1,monitor:LVDS-1,persistent:true
+workspace = 1,monitor:LVDS-1,persistent:true, default:true
 workspace = 2,monitor:LVDS-1,persistent:false
 workspace = 3,monitor:LVDS-1,persistent:false
 workspace = 4,monitor:LVDS-1,persistent:false
