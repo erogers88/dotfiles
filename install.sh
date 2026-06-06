@@ -4,13 +4,13 @@
 SCRIPTDIR="$(dirname "$(realpath "$0")")"
 
 # Personal or Work?
-read_char() {
+read_char_porw() {
   echo "Configure personal or work email account [p/w]?"
   stty -icanon -echo
   eval "$1=\$(dd bs=1 count=1 2>/dev/null)"
   stty icanon echo
 }
-read_char PORW
+read_char_porw PORW
 
 if [ "$PORW" = "p" ]; then
 	ACCNAME="personal"
@@ -20,13 +20,13 @@ else echo "Response not recognized, aborting..." && exit
 fi
 
 # Desktop or Laptop?
-read_char() {
+read_char_dorl() {
   echo "Is this a desktop or laptop [d/l]?"
   stty -icanon -echo
   eval "$1=\$(dd bs=1 count=1 2>/dev/null)"
   stty icanon echo
 }
-read_char DORL
+read_char_dorl DORL
 
 if [ "$DORL" = "d" ]; then
 	PHYSTYPE="desktop"
